@@ -1,16 +1,16 @@
 @font-face {
     font-family: 'Inter_medium';
-    src: url(/project_name/assets/fonts/Inter-Medium.woff);
+    src: url(/Fast-type/assets/fonts/Inter-Medium.woff);
 }
 
 @font-face {
     font-family: 'Inter_semibold';
-    src: url(/project_name/assets/fonts/Inter-SemiBold.woff);
+    src: url(/Fast-type/assets/fonts/Inter-SemiBold.woff);
 }
 
 @font-face {
     font-family: 'Edu-Medium';
-    src: url(/project_name/assets/fonts/EduTASBeginner-Medium.woff);
+    src: url(/Fast-type/assets/fonts/EduTASBeginner-Medium.woff);
 }
 
 body {
