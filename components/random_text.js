@@ -156,12 +156,12 @@ let App = (words) => {
         if(punct.classList.contains('active_block')) sentence += '.' ;
 
         if(long_text > 30) {
-            septum_text = sentence.slice(210);
-            sentence = sentence.slice(0, 210);
+            septum_text = sentence.slice(200);
+            sentence = sentence.slice(0, 200);
             controller_text = false;
         };
 
-            /*caretka_blink = setInterval(() => {
+            caretka_blink = setInterval(() => {
                 if (controller_setCaretka == true) {
                     caretka.classList.add('caretka-blink'); 
                     controller_setCaretka = false;
@@ -169,7 +169,7 @@ let App = (words) => {
                     caretka.classList.remove('caretka-blink')
                     controller_setCaretka = true;
                 }
-            }, 550); */
+            }, 550);
 
         clearInterval(timerId);
         text_WPM_ACC.classList.remove('tittle-animate');
