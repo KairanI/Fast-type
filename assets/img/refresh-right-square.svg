@@ -1,0 +1,5 @@
+        <svg id="button" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M40.5457 28.2819C40.0894 27.4269 39.5017 26.5714 38.6908 25.7545C35.0808 22.1177 29.1994 22.096 25.5626 25.706C21.9259 29.316 21.9042 35.1974 25.5142 38.8342C29.1242 42.4709 35.0056 42.4926 38.6423 38.8826C39.9995 37.5354 40.8458 35.8844 41.2068 34.1396" stroke="#8F8F8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M41.2899 29.4006L41.6354 24.7151" stroke="#8F8F8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M41.2899 29.4006L36.8814 28.7017" stroke="#8F8F8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>

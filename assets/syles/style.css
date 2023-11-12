@@ -1,0 +1,370 @@
+@font-face {
+    font-family: 'Inter_medium';
+    src: url(/assets/fonts/Inter-Medium.ttf);
+}
+
+@font-face {
+    font-family: 'Inter_semibold';
+    src: url(/assets/fonts/Inter-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: 'Edu-Regular';
+    src: url(/assets/fonts/EduTASBeginner-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Edu-Medium';
+    src: url(/assets/fonts/EduTASBeginner-Medium.ttf);
+}
+
+@font-face {
+    font-family: 'Edu-Bold';
+    src: url(/assets/fonts/EduTASBeginner-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'Edu-SemiBold';
+    src: url(/assets/fonts/EduTASBeginner-SemiBold.ttf);
+}
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+
+    background: #2F2F2F;
+}
+
+.button {
+    position: absolute;
+
+    top: 617px;
+    left: 927.94px;
+}
+
+svg {
+    cursor: pointer;
+    transition: .2s;
+}
+
+svg:hover {
+    width: 59px;
+    height: 59px;
+    transition: .2s;
+}
+
+svg:hover path {
+    stroke: #FFF;
+    transition: .2s;
+}
+
+.container {
+    display: flex;
+    padding-top: 80px;
+}
+
+.manangmet {
+    width: 423px;
+    height: 45px;
+    border-radius: 44px;
+
+    background: #3E3E3E;
+
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+
+}
+
+.settings {
+    width: 31px;
+    height: 31px;
+    border-radius: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #8F8F8F;
+    cursor: pointer;
+
+    font-family: 'Inter_semibold';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+    -webkit-user-select: none;
+    transition: .3s;
+}
+
+.settings:hover {
+    color: #FFF;
+}
+
+.septum {
+    width: 8px;
+    height: 31px;
+    border-radius: 32px;
+
+    background: #292929;
+}
+
+.active_block {
+    color: #FFF;
+    background: rgba(185, 185, 185, 0.50);
+    transition: .3s;
+}
+
+/* Классы для анимаций переключения языка текста */
+.activing_lang {
+    width: 31px;
+    height: 31px;
+    border-radius: 24px;
+    display: flex;
+
+    position: absolute;
+    left: 942px;;
+
+    background: rgba(185, 185, 185, 0.50);
+
+    transition: .3s;
+
+}
+
+.ru {
+    transition: .3s;
+    left: 899px;
+}
+
+.en {
+    transition: .3s;
+    left: 942px;
+}
+
+/* Классы для анимаций переключения длинны текста */
+.activing {
+    width: 31px;
+    height: 31px;
+    border-radius: 24px;
+
+    position: absolute;
+    left: 1005px;
+    
+    background: rgba(185, 185, 185, 0.50);
+    transition-duration: .3s;
+}
+
+.long_10 {
+    transition: .3s;
+    left: 1005px;
+}
+
+.long_20 {
+    transition: .3s;
+    left: 1048px;
+}
+
+.long_50 {
+    transition: .3s;
+    left: 1091px;
+}
+
+.long_80 {
+    transition: .3s;
+    left: 1134px;
+}
+
+.active {
+    transition: .3s;
+    color: #FFF;
+}
+
+.line {
+    color: #8F8F8F;
+
+    width: 1184px;
+    overflow-wrap: break-word;
+    -webkit-user-select: none;
+
+    position: absolute;
+    left: 368px;
+    top: 300px;
+
+
+    font-family: 'Inter_medium';
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 156.523%;
+    letter-spacing: 1.12px;
+    word-spacing: 5px
+}
+
+.caretka {
+    width: 18px;
+    height: 3px;
+    border-radius: 12px;
+    background: #FFF;
+
+    position: absolute;
+    left: 370px;
+    top: 337px;
+
+    transition: .1s;
+}
+
+.wh  {
+    color: #FFF;
+}
+
+.error {
+    color: #CA4754;
+   /* border-bottom: 2px solid #CA4754; */
+}
+
+.keybord {
+    Display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    padding-top: 320px;
+
+    -webkit-user-select: none;
+}
+
+.key_1 {
+    display: flex; 
+    gap: 7px;
+}
+
+.key {
+    width: 35.276px;
+    height: 35.276px;
+    flex-shrink: 0;
+
+    border-radius: 10px;
+    background: #292929;
+
+    color: #8F8F8F;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: Inter_medium;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 33px;
+}
+
+.wrapper {
+    position: absolute;
+    left: 800px;
+    top: 195px;
+}
+
+.tittle {
+    width: 18ch;
+    color: #FFF;
+    white-space: nowrap;
+    overflow: hidden;
+    opacity: 0%;
+
+    font-family: 'Edu-Medium';
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+}
+
+.keybord-animate {
+    animation-name: keyAnimate;
+    animation-duration: .2s;
+}
+
+.keybord-error {
+    animation-name: keyError;
+    animation-duration: .2s;
+}
+
+.tittle-animate {
+    animation: print-text 2s steps(100);
+    opacity: 100%;
+}
+
+.caretka-type {
+    animation: caretka-WPM 4s;
+}
+
+.caretka-blink {
+    animation: caretkaAnimate .3s;
+}
+
+@keyframes caretka-WPM {
+    50% {
+        left: 800px;
+        top: 245px;
+    } 100% {
+        left: 1100px;
+        top: 245px;
+    }
+}
+
+@keyframes print-text {
+    from {
+        width: 0;
+    }
+}
+
+@keyframes caretkaAnimate {
+    0%{
+        opacity: 100%;
+    }
+    50%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+    }
+}
+
+@keyframes keyAnimate {
+    0%{
+        background: #292929;
+    }
+    50%{
+        background: #FFF;
+    }
+    100%{
+        background: #292929;
+    }
+}
+
+@keyframes keyError {
+    0%{
+        background: #292929;
+    }
+    50%{
+        background: #CA4754;
+    }
+    100%{
+        background: #292929;
+    }
+}
+
+.whitespace {
+    width: 248.787px;
+    height: 35.276px;
+    flex-shrink: 0;
+
+    border-radius: 10px;
+    background: #292929;
+}
