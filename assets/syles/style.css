@@ -1,34 +1,17 @@
 @font-face {
     font-family: 'Inter_medium';
-    src: url(/assets/fonts/Inter-Medium.ttf);
+    src: url(/assets/fonts/Inter-Medium.woff);
 }
 
 @font-face {
     font-family: 'Inter_semibold';
-    src: url(/assets/fonts/Inter-SemiBold.ttf);
-}
-
-@font-face {
-    font-family: 'Edu-Regular';
-    src: url(/assets/fonts/EduTASBeginner-Regular.ttf);
+    src: url(/assets/fonts/Inter-SemiBold.woff);
 }
 
 @font-face {
     font-family: 'Edu-Medium';
-    src: url(/assets/fonts/EduTASBeginner-Medium.ttf);
+    src: url(/assets/fonts/EduTASBeginner-Medium.woff);
 }
-
-@font-face {
-    font-family: 'Edu-Bold';
-    src: url(/assets/fonts/EduTASBeginner-Bold.ttf);
-}
-
-@font-face {
-    font-family: 'Edu-SemiBold';
-    src: url(/assets/fonts/EduTASBeginner-SemiBold.ttf);
-}
-
-
 
 body {
     margin: 0;
