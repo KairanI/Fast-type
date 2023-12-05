@@ -8,9 +8,6 @@
     <script src="components/random_text.js" defer></script>
 </head>
 <body>
-    <div class="wrapper">
-        <div id="tittle" class="tittle"></div>
-    </div>
     <container class="container"">
         <div class="manangmet">
             <div style="width: 50px;" class="settings" id="punct">@.!?</div>
@@ -18,25 +15,24 @@
             <div class="septum"></div>
             <div class="settings" id="ru">ru</div>
             <div class="settings" id="en">en</div>
-            <div class="activing_lang" id="activing_lang"></div>
             <div class="septum"></div>
             <div class="settings" id="long_10">10</div>
             <div class="settings" id="long_20">25</div>
             <div class="settings" id="long_50">50</div>
             <div class="settings" id="long_80">80</div>
-            <div class="activing" id="activing"></div>
         </div>
     </container>
     <div id="line" class="line"></div>
+    <div class="hide_text"></div>
     <div id="caretka" class="caretka"></div>
     <div class="button">
-        <svg id="button" width="57" height="57" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M40.5457 28.2819C40.0894 27.4269 39.5017 26.5714 38.6908 25.7545C35.0808 22.1177 29.1994 22.096 25.5626 25.706C21.9259 29.316 21.9042 35.1974 25.5142 38.8342C29.1242 42.4709 35.0056 42.4926 38.6423 38.8826C39.9995 37.5354 40.8458 35.8844 41.2068 34.1396" stroke="#8F8F8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M41.2899 29.4006L41.6354 24.7151" stroke="#8F8F8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M41.2899 29.4006L36.8814 28.7017" stroke="#8F8F8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <svg class="button_replay" id="button" width="57" height="57" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="button_path" d="M40.5457 28.2819C40.0894 27.4269 39.5017 26.5714 38.6908 25.7545C35.0808 22.1177 29.1994 22.096 25.5626 25.706C21.9259 29.316 21.9042 35.1974 25.5142 38.8342C29.1242 42.4709 35.0056 42.4926 38.6423 38.8826C39.9995 37.5354 40.8458 35.8844 41.2068 34.1396" stroke="#8F8F8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path class="button_path" d="M41.2899 29.4006L41.6354 24.7151" stroke="#8F8F8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path class="button_path" d="M41.2899 29.4006L36.8814 28.7017" stroke="#8F8F8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
     </div>
-    <section class="keybord">
+    <section id="section" class="keybord">
         <container class="key_1">
             <div class="key" id="KeyQ">Q</div>
             <div class="key" id="KeyW">W</div>

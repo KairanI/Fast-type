@@ -1,6 +1,7 @@
 @font-face {
     font-family: 'Inter_medium';
     src: url(/Fast-type/assets/fonts/Inter-Medium.woff);
+    /*src: url(/Fast-type/assets/fonts/Inter-Medium.woff); */
 }
 
 @font-face {
@@ -9,8 +10,8 @@
 }
 
 @font-face {
-    font-family: 'Edu-Medium';
-    src: url(/Fast-type/assets/fonts/EduTASBeginner-Medium.woff);
+    font-family: 'PTMono-Regular';
+    src: url(/Fast-type/assets/fonts/PTMono-Regular.woff);
 }
 
 body {
@@ -32,13 +33,13 @@ svg {
     transition: .2s;
 }
 
-svg:hover {
+.button_replay:hover {
     width: 59px;
     height: 59px;
     transition: .2s;
 }
 
-svg:hover path {
+.button_replay:hover .button_path {
     stroke: #FFF;
     transition: .2s;
 }
@@ -103,70 +104,6 @@ svg:hover path {
     transition: .3s;
 }
 
-/* Классы для анимаций переключения языка текста */
-.activing_lang {
-    width: 31px;
-    height: 31px;
-    border-radius: 24px;
-    display: flex;
-
-    position: absolute;
-    left: 942px;;
-
-    background: rgba(185, 185, 185, 0.50);
-
-    transition: .3s;
-
-}
-
-.ru {
-    transition: .3s;
-    left: 899px;
-}
-
-.en {
-    transition: .3s;
-    left: 942px;
-}
-
-/* Классы для анимаций переключения длинны текста */
-.activing {
-    width: 31px;
-    height: 31px;
-    border-radius: 24px;
-
-    position: absolute;
-    left: 1005px;
-    
-    background: rgba(185, 185, 185, 0.50);
-    transition-duration: .3s;
-}
-
-.long_10 {
-    transition: .3s;
-    left: 1005px;
-}
-
-.long_20 {
-    transition: .3s;
-    left: 1048px;
-}
-
-.long_50 {
-    transition: .3s;
-    left: 1091px;
-}
-
-.long_80 {
-    transition: .3s;
-    left: 1134px;
-}
-
-.active {
-    transition: .3s;
-    color: #FFF;
-}
-
 .line {
     color: #8F8F8F;
 
@@ -175,17 +112,27 @@ svg:hover path {
     -webkit-user-select: none;
 
     position: absolute;
+    z-index: 1;
     left: 368px;
     top: 300px;
 
-
-    font-family: 'Inter_medium';
+    font-family: 'PTMono-Regular';
     font-size: 28px;
     font-style: normal;
     font-weight: 500;
     line-height: 156.523%;
     letter-spacing: 1.12px;
-    word-spacing: 5px
+}
+
+.hide_text {
+    position: absolute;
+    z-index: 2;
+    left: 368px;
+    top: 435px;
+
+    width: 1184px;
+    height: 200px;
+    background: #2F2F2F;
 }
 
 .caretka {
@@ -210,7 +157,13 @@ svg:hover path {
    /* border-bottom: 2px solid #CA4754; */
 }
 
+.space_error {
+    color: #852f38;
+}
+
 .keybord {
+    position: relative;
+    z-index: 3;
     Display: flex;
     flex-direction: column; 
     align-items: center;
@@ -247,27 +200,6 @@ svg:hover path {
     line-height: 33px;
 }
 
-.wrapper {
-    position: absolute;
-    left: 800px;
-    top: 195px;
-}
-
-.tittle {
-    width: 18ch;
-    color: #FFF;
-    white-space: nowrap;
-    overflow: hidden;
-    opacity: 0%;
-
-    font-family: 'Edu-Medium';
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-
-}
-
 .keybord-animate {
     animation-name: keyAnimate;
     animation-duration: .2s;
@@ -278,33 +210,8 @@ svg:hover path {
     animation-duration: .2s;
 }
 
-.tittle-animate {
-    animation: print-text 2s steps(100);
-    opacity: 100%;
-}
-
-.caretka-type {
-    animation: caretka-WPM 4s;
-}
-
 .caretka-blink {
     animation: caretkaAnimate .5s;
-}
-
-@keyframes caretka-WPM {
-    50% {
-        left: 800px;
-        top: 245px;
-    } 100% {
-        left: 1100px;
-        top: 245px;
-    }
-}
-
-@keyframes print-text {
-    from {
-        width: 0;
-    }
 }
 
 @keyframes caretkaAnimate {
