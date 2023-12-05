@@ -31,8 +31,6 @@ let controller_delate_text = 150;
 let controller_delate_spaceText = 0;
 
 
-// let controller_wordCreate = true;
-
 let controller_space_backspace = true;
 let controller_space_number_characters = true;
 let controller_space = true;
@@ -170,6 +168,7 @@ let App = (words) => {
         space_num = 0;
         error_num = 0;
         key_num = 0;
+        timerId = 0;
         num_massiv_space = 0;
         space_letter.length = 0;
         controller_delate_spaceText = 0;
@@ -179,7 +178,6 @@ let App = (words) => {
         controller_wpm = true;
         controller_space = true;
         controller_space_backspace = true;
-        controller_wordCreate = true;
         text.textContent = '';
 
         returnText();
@@ -430,6 +428,9 @@ function positionCaretka() {
 }
 
 function WPM() {
+    console.log(timerId);
+    console.log(error_num);
+    console.log(key_num);
     controller_wpm = false;
     clearInterval(timerId);
 
@@ -439,6 +440,8 @@ function WPM() {
     let wpm_1 = Math.floor(long_text / minutes);
 
     wpm = Math.floor(wpm_1 - ((error_num / minutes) / 2));
+    console.log(wpm);
+    console.log(second);
     if (wpm < 0 || isNaN(wpm)) wpm = 0;
     if (acc < 0) acc = 0;
 
