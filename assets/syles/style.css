@@ -1,17 +1,17 @@
 @font-face {
     font-family: 'Inter_medium';
-    src: url(/Fast-type/assets/fonts/Inter-Medium.woff);
+    src: url(/assets/fonts/Inter-Medium.woff);
     /*src: url(/Fast-type/assets/fonts/Inter-Medium.woff); */
 }
 
 @font-face {
     font-family: 'Inter_semibold';
-    src: url(/Fast-type/assets/fonts/Inter-SemiBold.woff);
+    src: url(/assets/fonts/Inter-SemiBold.woff);
 }
 
 @font-face {
     font-family: 'PTMono-Regular';
-    src: url(/Fast-type/assets/fonts/PTMono-Regular.woff);
+    src: url(/assets/fonts/PTMono-Regular.woff);
 }
 
 body {
@@ -158,6 +158,10 @@ svg {
 }
 
 .space_error {
+    color: #852f38;
+}
+
+.space_error_two {
     color: #852f38;
 }
 

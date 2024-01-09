@@ -18,6 +18,7 @@ const section = document.getElementById('section');
 long_10.classList.add('active_block');
 en.classList.add('active_block');
 
+let you_word = 0;
 let text_num = 0;
 let key_num = 0;
 let error_num = 0;
@@ -169,6 +170,7 @@ let App = (words) => {
         error_num = 0;
         key_num = 0;
         timerId = 0;
+        you_word = 0;
         num_massiv_space = 0;
         space_letter.length = 0;
         controller_delate_spaceText = 0;
@@ -193,25 +195,7 @@ function Keyboard(code, key) {
         if(space_back !== null && space_back !== undefined) controller_space_backspace = true;
         if(sentence[key_num] == ' ' && space_back === null) controller_space_number_characters = true;
 
-        if(event.code == 'Backspace' && sentence.length > key_num) {
-            const space_word = document.getElementById(`${space_num} i${key_num}`)
-            if(space_word !== null && space_word !== undefined && controller_space_backspace == true) {
-                space_word.remove();
-
-                space_letter[space_letter.length - 1].pop();
-
-                if(space_letter[space_letter.length - 1].length == 0) {
-                    space_letter.pop()
-                }
-                space_num -= 1;
-                controller_space_number_characters = true;
-            } else {
-                let id_word = document.getElementById(`${sentence[key_num - 1] + (key_num - 1)}`);
-                id_word.classList.remove('wh') || id_word.classList.remove('error');
-                if (key_num > 0) key_num -= 1;
-                controller_space = true;
-            }
-        }
+        if(event.code == 'Backspace' && sentence.length > key_num) Backspace();
             
         else if(sentence[key_num] == ' ' && sentence[key_num] != key && mod_keys.includes(event.key) == false) {
             if(controller_space_number_characters == false) return;
@@ -221,24 +205,17 @@ function Keyboard(code, key) {
                 ++error_num;
     
                 if(space_word !== null && space_word !== undefined && controller_space == true) {
-                    space_word.insertAdjacentHTML("afterend", `<letter id="${space_num} i${key_num}" class="space_error">${key}</letter>`);
-    
-                    space_letter[space_letter.length - 1].push(key);
-                } else {
+                    errorType(space_word, key, true);
+                }
+                
+                else {
                     const id_word = document.getElementById(`${sentence[key_num - 1] + (key_num - 1)}`);
-                    id_word.insertAdjacentHTML("afterend", `<letter id="${space_num} i${key_num}" class="space_error">${key}</letter>`);
-    
-                    space_letter.push([key]);
-    
+                    errorType(id_word, key, false);
                     controller_space = true;
                 }
-                let key_animate = document.getElementById(code);
-                if (key_animate) {
-                    key_animate.classList.add('keybord-error');
-                };
-                setTimeout(() => {
-                    key_animate.classList.remove('keybord-error')}, 200);
-            }
+
+                AnimateKey(code, 'keybord-error');
+            };
 
             if(space_letter[space_letter.length - 1].length >= 19) controller_space_number_characters = false;
         }
@@ -246,7 +223,7 @@ function Keyboard(code, key) {
         else if (sentence.length > key_num && mod_keys.includes(event.key) == false) {
             if(sentence[key_num] == key) keyType('wh', 'keybord-animate', code);
             else if(sentence[key_num] != key) keyType('error', 'keybord-error', code);
-        }
+        };
 
         if(sentence.length == key_num && controller_wpm == true) WPM();
         if(key_num == (192 - space_num)) delateText();
@@ -382,24 +359,68 @@ long_80.addEventListener('click', () => {
 
 function keyType(classWord, classKey, event_code) {
     if (timerId < 1)  timerId = setInterval(() => second += 1, 1000);
+    if(event_code == 'Space' && classWord != 'error') {
+        ++you_word;
+        console.log(you_word);
+    };
 
     let id_word = document.getElementById(`${sentence[key_num] + key_num}`);
     id_word.classList.add(classWord);
     ++key_num;
     if(classWord == 'error') error_num += 1;
 
-    // анимация клавиатуры при не правильных нажатиях
-    let key_animate = document.getElementById(event_code);
+    AnimateKey(event_code, classKey);
+
+    clearInterval(caretka_Interval);
+    controller_space = false;
+    controller_space_backspace = false;
+};
+
+function errorType(word, error_key, bool) {
+    if(key_num < 110) word.insertAdjacentHTML("afterend", `<letter id="${space_num} i${key_num}" class="space_error">${error_key}</letter>`);
+
+    else word.insertAdjacentHTML("afterend", `<letter id="${space_num} i${key_num}" class="space_error_two">${error_key}</letter>`);
+
+    if(bool == true) space_letter[space_letter.length - 1].push(error_key);
+    if (bool == false)  space_letter.push([error_key]);
+};
+
+function Backspace() {
+    const space_word = document.getElementById(`${space_num} i${key_num}`);
+    if(space_word !== null && space_word !== undefined && controller_space_backspace == true) {
+        space_word.remove();
+
+        space_letter[space_letter.length - 1].pop();
+
+        if(space_letter[space_letter.length - 1].length == 0) {
+            space_letter.pop()
+        };
+        
+        space_num -= 1;
+        controller_space_number_characters = true;
+    } else {
+        const id_word = document.getElementById(`${sentence[key_num - 1] + (key_num - 1)}`);
+
+        if(id_word.textContent == ' ') {
+            you_word -= 1;
+            console.log(you_word);
+        };
+
+        id_word.classList.remove('wh') || id_word.classList.remove('error');
+        if (key_num > 0) key_num -= 1;
+
+        controller_space = true;
+    }
+}
+
+function AnimateKey(key_code, classKey) {
+    let key_animate = document.getElementById(key_code);
     if (key_animate) {
        key_animate.classList.add(classKey);
     };
     setTimeout(() => {
         key_animate.classList.remove(classKey)}, 200);
-
-    clearInterval(caretka_Interval);
-    controller_space = false;
-    controller_space_backspace = false;
-}
+};
 
 function blinkCaretka() {
     caretka_Interval = setInterval(() => {
@@ -411,26 +432,23 @@ function blinkCaretka() {
             controller_setCaretka = true;
         }
     }, 550);
-}
+};
 
 function ChangingKeys(language) {
     for(let i = 0; i < key_keybord.length; i++) {
         const change_key = document.getElementById(key_keybord[i]);
         change_key.textContent = language[i];
-    }
-}
+    };
+};
 
 function positionCaretka() {
     let letter = document.getElementById(`${sentence[key_num] + key_num}`);
     let coordinats_letter = letter.getBoundingClientRect();
     caretka.style.left = `${coordinats_letter.left}px`;
-    caretka.style.top = `${coordinats_letter.top + 34}px`
-}
+    caretka.style.top = `${coordinats_letter.top + 34}px`;
+};
 
 function WPM() {
-    console.log(timerId);
-    console.log(error_num);
-    console.log(key_num);
     controller_wpm = false;
     clearInterval(timerId);
 
@@ -440,33 +458,33 @@ function WPM() {
     let wpm_1 = Math.floor(long_text / minutes);
 
     wpm = Math.floor(wpm_1 - ((error_num / minutes) / 2));
-    console.log(wpm);
-    console.log(second);
     if (wpm < 0 || isNaN(wpm)) wpm = 0;
     if (acc < 0) acc = 0;
 
     console.log(`WPM: ${wpm}; ACC: ${acc}`);
-}
+};
 
 function returnText() {
     for (let char of sentence) {
             text.innerHTML += `<letter id="${char + text_num}">${char}</letter>`;
             ++text_num;
     };
-}
+};
 
 function delateText() {
     for(let i = 40; controller_delate_text > 0; i++) {
         const id_word = document.getElementById(`${sentence[key_num - i] + (key_num - i)}`);
         const space_word = document.getElementsByClassName('space_error');
+
         for (let elem of space_word) {
             elem.remove();
-        }
+        };
+
 
         if(id_word !== null && id_word !== undefined) id_word.remove();
         controller_delate_text -= 1;
-    }
-}
+    };
+};
 
 
 function invocation() {
@@ -474,8 +492,8 @@ function invocation() {
         App(words_ru);
     } else {
         App(words_en);
-    }
-}
+    };
+};
 
 
 invocation();
